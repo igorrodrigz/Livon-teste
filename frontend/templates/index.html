@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Livon</title>
+    {% load static %}
+    <link rel="stylesheet" href="{%  static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>CRUD de Usuários da Livon</h1>
+    </header>
+    <main>
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+
+        <section id="login">
+            <h2>Login</h2>
+            <form id="login-form" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" required>
+                <label for="password">Senha:</label>
+                <input type="password" name="password" id="password" required>
+                <button type="submit">Entrar</button>
+            </form>
+        </section>
+        <section id="signup">
+            <h2>Cadastro</h2>
+            <form id="signup-form">
+                <label for="name">Nome:</label>
+                <input type="text" name="name" id="name" required>
+                <label for="email-signup">E-mail:</label>
+                <input type="email" name="email-signup" id="email-signup" required>
+                <label for="password-signup">Senha:</label>
+                <input type="password" name="password-signup" id="password-signup" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
