@@ -1,0 +1,26 @@
+<!-- templates/user_list.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Usuários - CRUD Livon</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Lista de Usuários</h1>
+    </header>
+    <main>
+        <ul>
+            {% for user in object_list %}
+                <li>
+                    <a href="{% url 'user-detail' user.pk %}">{{ user.name }}</a> - {{ user.email }}
+                </li>
+            {% empty %}
+                <li>Nenhum usuário cadastrado.</li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>

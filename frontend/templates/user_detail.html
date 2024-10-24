@@ -1,0 +1,21 @@
+<!-- templates/user_detail.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Usuário - CRUD Livon</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Detalhes do Usuário</h1>
+    </header>
+    <main>
+        <h2>{{ user.name }}</h2>
+        <p>Email: {{ user.email }}</p>
+        <p>Data de Criação: {{ user.date_created }}</p>
+        <a href="{% url 'user-list' %}">Voltar à lista de usuários</a>
+    </main>
+</body>
+</html>

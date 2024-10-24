@@ -1,0 +1,27 @@
+<!-- templates/signup.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro - CRUD Livon</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Cadastro de Usuários</h1>
+    </header>
+    <main>
+        <form method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <label for="name">Nome:</label>
+            <input type="text" name="name" id="name" required>
+            <label for="email-signup">E-mail:</label>
+            <input type="email" name="email-signup" id="email-signup" required>
+            <label for="password-signup">Senha:</label>
+            <input type="password" name="password-signup" id="password-signup" required>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </main>
+</body>
+</html>

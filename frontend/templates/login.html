@@ -1,0 +1,28 @@
+<!-- templates/login.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - CRUD Livon</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Login de Usuários</h1>
+    </header>
+    <main>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" name="password" id="password" required>
+
+            <button type="submit">Entrar</button>
+        </form>
+        <p>Não tem uma conta? <a href="{% url 'signup' %}">Cadastre-se aqui</a></p>
+    </main>
+</body>
+</html>

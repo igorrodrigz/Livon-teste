@@ -124,7 +124,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'frontend', 'static'),
 ]
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+
+LOGIN_URL = 'login'  # Ou ajuste para a URL correta de login
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
